@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Morreu.unity
     guid: f62eaffb16b804c48a386ff95ee3e16e
+  - enabled: 1
+    path: Assets/Scenes/Fim.unity
+    guid: 8779d1f9412e29241a444c300f0c0fee
   m_configObjects: {}

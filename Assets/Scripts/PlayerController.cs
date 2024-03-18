@@ -13,28 +13,15 @@ public class PlayerController : MonoBehaviour
     private float movementY;
     private float movementZ;
     public float intensidade_pulo;
-
     public float speed = 0;
-    private int count;
-
-    public TextMeshProUGUI countText;
-
-    public GameObject winText;
 
     private bool esta_no_ar = false;
-
     private float tempoAr = 0f;
-
-
 
 
     void Start()
     {
         rb = GetComponent <Rigidbody>(); 
-        count = 0;
-
-        SetCountText();
-        winText.SetActive(false);
     }
 
     void Update(){
@@ -45,14 +32,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-   void SetCountText() 
-   {
-       countText.text =  "Count: " + count.ToString();
-       if(count >= 15){
-        winText.SetActive(true);
-       }
-   }
 
     void OnMove(InputValue movementValue)
     {
@@ -77,16 +56,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other){
-
-        if(other.gameObject.CompareTag("Pickup")){
-            other.gameObject.SetActive(false);
-            count++;
-            SetCountText();
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision){
+    private void OnCollisionStay(Collision collision){
         if(collision.gameObject.CompareTag("Enemy")){
             SceneManager.LoadScene("Morreu");
         }

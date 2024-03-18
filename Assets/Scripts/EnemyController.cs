@@ -5,13 +5,14 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public Transform player;
+    public GameObject enemy;
 
     public float speed = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemy.SetActive(false);
     }
 
     // Update is called once per frame
